@@ -1,0 +1,36 @@
+from scrapy.spider import BaseSpider
+from scrapy.http import FormRequest
+from scrapy.http import Request
+from scrapy.selector import HtmlXPathSelector
+from beacon.items import BeaconItem
+
+class BeaconSpider(BaseSpider):
+	name="yelp.com"
+	allowed_domains = ["yelp.com"]
+
+	#
+	# Setup the initial request to begin the spidering process
+	#
+	def start_requests(self):
+		beaconRequest = Request("http://www.yelp.com/search?find_desc=dog+park&find_loc=77023",
+				callback=self.parseBeacon)
+
+		return  [beaconRequest]
+
+	#
+	# Scrape, parse all the brand categories into a list
+	# Create a request for every brand category
+	#
+	def parseBeacon(self, response):
+		hxs = HtmlXPathSelector(response)
+
+		# Gather all brand categories into list
+		beaconList = hxs.select('//*[@id="bizTitleLink0"]').extract()
+
+		for i in range(len(beaconList)):
+			# Create items for the brand category pipeline
+			item = BeaconItem()
+			item['Title'] = beaconList[i]
+			yield item
+
+SPIDER= BeaconSpider()
