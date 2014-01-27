@@ -110,7 +110,7 @@ public class MapFragment extends BaseMapFragment implements
 
 	private void initMap() {
 		// set up the map tile use
-		Util.setMapTile(getActivity(), map);
+//		Util.setMapTile(getActivity(), map);
 		if (mReportModel.size() > 0) {
 			setupMapCenter();
 			mHandler.post(mMarkersOnMap);
@@ -187,7 +187,6 @@ public class MapFragment extends BaseMapFragment implements
 									if (latLng != null)
 										map.moveCamera(CameraUpdateFactory
 												.newLatLng(latLng));
-
 								}
 							});
 				}
