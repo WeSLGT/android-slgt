@@ -312,7 +312,7 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDdY_P2GNaZg0mzdDTg7_jTJNHf9Z0UrY" />
+            android:value="AIzaSyDHM1kmFjb7Og3w1blPBpE8TeBZ7_x8UCw" />
     </application>
 
 </manifest>

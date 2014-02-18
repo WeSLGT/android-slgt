@@ -407,8 +407,8 @@ public class ReportDao extends DbContentProvider implements IReportDao,
 		initialValues.put(INCIDENT_DESC, report.getIncident().getDescription());
 		initialValues.put(INCIDENT_DATE,
 				getDate(report.getIncident().getDate()));
-		initialValues.put(INCIDENT_SOCIALMEDIA, report.getCustomFields().getFieldOne().getFieldResponse());
-		initialValues.put(INCIDENT_MENU, report.getCustomFields().getFieldTwo().getFieldResponse());
+		initialValues.put(INCIDENT_SOCIALMEDIA, report.getIncident().getSocialMedia());
+		initialValues.put(INCIDENT_MENU, report.getIncident().getMenu());
 		initialValues.put(INCIDENT_MODE, report.getIncident().getMode());
 		initialValues
 				.put(INCIDENT_VERIFIED, report.getIncident().getVerified());
